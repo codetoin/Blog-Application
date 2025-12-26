@@ -1,0 +1,61 @@
+<%- include("partials/header.ejs") %>
+
+<div class="container mt-5">
+  <div class="card bg-white shadow-sm p-4">
+    <h2 class="mb-4">Edit Blog Post</h2>
+
+    <form action="/update/<%= post.id %>" method="post">
+      <!-- Title -->
+      <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input type="text" id="title" name="title" class="form-control" value="<%= post.title %>" required>
+      </div>
+
+      <!-- Subtitle -->
+      <div class="mb-3">
+        <label for="subtitle" class="form-label">Subtitle</label>
+        <input type="text" id="subtitle" name="subtitle" class="form-control" value="<%= post.subtitle %>" required>
+      </div>
+
+      <!-- Text -->
+      <div class="mb-3">
+        <label for="text" class="form-label">Text</label>
+        <textarea id="text" name="text" class="form-control" rows="6" required><%= post.text %></textarea>
+      </div>
+
+      <!-- Author -->
+      <div class="mb-3">
+        <label for="author" class="form-label">Author</label>
+        <input type="text" id="author" name="author" class="form-control" value="<%= post.author %>" required>
+      </div>
+
+      <!-- Date -->
+      <div class="mb-4">
+        <label for="date" class="form-label">Publish Date</label>
+        <input type="date" id="date" name="date" class="form-control" value="<%= published_date %>">
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" class="btn btn-primary">Update Post</button>
+    </form>
+  </div>
+</div>
+
+<!-- Optional custom styles -->
+<style>
+  body {
+    background-color: #f1f3f5; /* Soft gray background */
+    color: #212529;
+  }
+
+  .card {
+    border-radius: 10px;
+  }
+
+  .btn:hover {
+    opacity: 0.85;
+    transition: 0.2s;
+  }
+</style>
+
+<%- include("partials/footer.ejs") %>

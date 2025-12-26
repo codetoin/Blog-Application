@@ -1,0 +1,59 @@
+<%- include("partials/header.ejs") %>
+
+<div class="container mt-5">
+  <div class="card bg-white text-dark shadow-sm">
+    <div class="card-body">
+      <!-- Title & Subtitle -->
+      <h1 class="card-title display-5 text-primary"><%= post.title %></h1>
+      <h4 class="card-subtitle mb-3 text-secondary"><%= post.subtitle %></h4>
+
+      <!-- Post content -->
+      <p class="card-text"><%= post.text %></p>
+
+      <!-- Author & Date -->
+      <p class="text-muted mb-3">
+        By <strong><%= post.author %></strong> | <%= new Date(published_date).toLocaleDateString() %>
+      </p>
+
+      <!-- Action buttons -->
+      <div class="d-flex gap-2">
+        <form action="/edit/<%= post.id %>">
+          <button type="submit" class="btn btn-outline-primary btn-sm">Edit</button>
+        </form>
+
+        <form action="/delete/<%= post.id %>" method="post">
+          <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Optional custom hover styling -->
+<style>
+  body {
+    background-color: #f1f3f5; /* Soft gray background */
+    color: #212529;
+  }
+
+  .card:hover {
+    transform: translateY(-3px);
+    transition: transform 0.2s;
+  }
+
+  .card-title a {
+    color: #0d6efd;
+    text-decoration: none;
+  }
+
+  .card-title a:hover {
+    text-decoration: underline;
+  }
+
+  .btn:hover {
+    opacity: 0.85;
+    transition: 0.2s;
+  }
+</style>
+
+<%- include("partials/footer.ejs") %>

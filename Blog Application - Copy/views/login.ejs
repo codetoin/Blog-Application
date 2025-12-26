@@ -1,0 +1,96 @@
+<%- include("partials/header.ejs") %>
+
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6 col-lg-5">
+      <div class="card bg-white shadow-sm p-4">
+        <h2 class="text-center mb-4 title">Sign in</h2>
+
+        <form action="/signIn" method="post">
+          <!-- Email -->
+          <div class="mb-3">
+            <label for="email" class="form-label">
+              Email <span class="text-danger">*</span>
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="form-control"
+              placeholder="you@example.com"
+              required
+            />
+          </div>
+
+          <!-- Password -->
+          <div class="mb-3">
+            <label for="password" class="form-label">
+              Password <span class="text-danger">*</span>
+            </label>
+
+            <div class="input-group">
+              <input
+                type="password"
+                id="password"
+                class="form-control"
+                placeholder="Enter password"
+                name="password"
+                required
+              />
+
+              <button
+                class="btn btn-outline-secondary eye-btn"
+                type="button"
+                onclick="togglePassword('password', this)"
+                aria-label="Toggle password visibility"
+              >
+                <i class="bi bi-eye-fill"></i>
+              </button>
+            </div>
+          </div>
+          <!-- Submit Button -->
+          <button type="submit" class="btn btn-primary w-100">Sign In</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Optional theme styling -->
+<style>
+  body {
+    background-color: #f1f3f5; /* Soft gray */
+    color: #212529;
+  }
+
+  .title {
+    color: #1a73e8;
+    font-weight: 600;
+  }
+
+  .form-control:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 0.15rem rgba(13, 110, 253, 0.25);
+  }
+
+  .card {
+    border-radius: 10px;
+  }
+</style>
+
+<script>
+  function togglePassword(inputId, btn) {
+    const input = document.getElementById(inputId);
+    const icon = btn.querySelector("i");
+
+    if (input.type === "password") {
+      input.type = "text";
+      icon.classList.replace("bi-eye-fill", "bi-eye-slash-fill");
+    } else {
+      input.type = "password";
+      icon.classList.replace("bi-eye-slash-fill", "bi-eye-fill");
+    }
+  }
+</script>
+
+<%- include("partials/footer.ejs") %>

@@ -1,0 +1,31 @@
+<%- include("partials/header.ejs") %>
+
+<div class="container mt-5">
+    <h1 class="mb-4 text-center" style="color: #2c3e50;">Blog Posts</h1>
+
+    <% if (array.length === 0) { %>
+        <p class="text-center">No blogs available.</p>
+    <% } else { %>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+            <% array.forEach(post => { %>
+                <div class="col">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <a href="/read/<%= post.id %>" class="text-decoration-none">
+                                    <%= post.title %>
+                                </a>
+                            </h5>
+                            <p class="card-text text-muted"><%= post.subtitle %></p>
+                        </div>
+                        <div class="card-footer text-muted">
+                            <small>By <%= post.author %> | <%= new Date(post.published_date).toLocaleDateString() %></small>
+                        </div>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    <% } %>
+</div>
+
+<%- include("partials/footer.ejs") %>

@@ -1,0 +1,84 @@
+<%- include("partials/header.ejs") %>
+
+<div class="container mt-5">
+  <!-- Hero Section -->
+  <div class="text-center py-5 bg-white rounded-4 shadow-sm mb-5">
+    <h1 class="display-4 title mb-3">Welcome to My Blog</h1>
+    <p class="lead text-secondary mb-4">
+      Discover tutorials, projects, and insights on web development and
+      programming.
+    </p>
+    <p class="lead text-secondary mb-4">
+      Sign up to read inspiring posts and contribute your own!
+    </p>
+    <a href="/register" class="btn btn-primary btn-lg me-2">Sign-up</a>
+    <a href="/signIn" class="btn btn-outline-primary btn-lg">Sign in</a>
+  </div>
+
+  <!-- About / Call to Action -->
+  <div class="text-center mt-5 p-4 bg-light rounded-4 shadow-sm">
+    <h3 class="mb-3 title">About This Blog</h3>
+    <p class="text-secondary mb-3">
+      This blog is dedicated to sharing my learning journey, web development
+      tutorials, and project experiences. Whether you’re a beginner or an
+      experienced developer, there’s something here for you!
+    </p>
+    <a href="/about" class="btn btn-outline-primary btn-lg">Learn More</a>
+  </div>
+</div>
+
+<!-- Custom CSS -->
+<style>
+  body {
+    background-color: #f1f3f5; /* Soft gray background */
+    color: #212529;
+  }
+
+  .title {
+    color: #1a73e8; /* Soft blue */
+    font-weight: 600;
+  }
+
+  .post-title {
+    color: #1a73e8;
+    font-weight: 600;
+    transition: color 0.2s ease;
+  }
+
+  .post-title:hover {
+    color: #0d6efd; /* Bootstrap primary */
+    text-decoration: underline;
+  }
+
+  .card {
+    background-color: #ffffff;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .btn-primary {
+    background-color: #1a73e8;
+    border-color: #1a73e8;
+  }
+
+  .btn-primary:hover {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+  }
+
+  .btn-outline-primary {
+    color: #1a73e8;
+    border-color: #1a73e8;
+  }
+
+  .btn-outline-primary:hover {
+    background-color: #1a73e8;
+    color: #ffffff;
+  }
+</style>
+
+<%- include("partials/footer.ejs") %>
